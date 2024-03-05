@@ -110,4 +110,6 @@ function valida() {
     console.log(JSON.stringify(obj));*/
 
     $("#json").html(json_armado);
+
+    Anexar_nuevo_registro(JSON.parse(json_armado));
 }

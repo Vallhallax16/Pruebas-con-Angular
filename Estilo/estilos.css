@@ -51,3 +51,36 @@
     background-color: #4169e1;
     /* Azul Rey */
 }
+
+ul#pestanas
+{
+    list-style: none;
+}
+
+ul#pestanas li
+{
+    display: inline-block;
+
+    padding-top: 15px;
+    padding: 10px 10px;
+
+    cursor: pointer;
+
+    background: rgba(67, 136, 255, 0.3);
+}
+
+ul#pestanas li:hover
+{
+    background: rgba(67, 136, 255, 0.8);
+}
+
+#mostrar_tabla
+{
+    align-items: center;
+    align-content: center;
+}
+
+.confirmaciones
+{
+    display: none;
+}
