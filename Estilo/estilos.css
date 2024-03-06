@@ -84,3 +84,17 @@ ul#pestanas li:hover
 {
     display: none;
 }
+
+#p_buscar_al
+{
+    display: inline;
+}
+
+#param_busqueda
+{
+    width: 10vw;
+
+    display: inline;
+
+    margin-bottom: 1%;
+}

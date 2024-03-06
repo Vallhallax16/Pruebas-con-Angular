@@ -4,6 +4,7 @@ function Ocultar_excepto(opcion)
     secciones.push(document.getElementById("forma_registro"));
     secciones.push(document.getElementById("mostrar_tabla"));
     secciones.push(document.getElementById("borrar_alumno"));
+    secciones.push(document.getElementById("buscar_alumno"))
 
     for(let i = 0; i < secciones.length; i++)
     {

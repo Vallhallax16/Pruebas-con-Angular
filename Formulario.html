@@ -20,6 +20,7 @@
   <script src="Scripts/Script_crear_XML_con_datos.js"></script>
   <script src="Scripts/Script_borrar_alumno.js"></script>
   <script src="Scripts/Script_ocultar_secciones.js"></script>
+  <script src="Scripts/Script_buscar.js"></script>
 
 </head>
 
@@ -278,7 +279,7 @@
     <div id="borrar_alumno" class="container mt-3">
         <p>Introduce la <em>clave</em> del alumno a borrar</p>
         <small id="envio_ayuda" class="form-text text-muted">No es sensible a mayúsculas y minúsculas</small>
-        <input type="text" id="id_a_borrar" name="id_a_borrar" value=" " class="form-control">
+        <input type="text" id="id_a_borrar" name="id_a_borrar" value="" class="form-control">
 
         <br>
 
@@ -295,6 +296,39 @@
         <button class="btn btn-primary" type="submit" onclick="Borrador()">Enviar ID</button>
 
         <br>
+    </div>
+
+    <div id="buscar_alumno" class="container mt-3">
+      <p id="p_buscar_al">Buscar a un alumno por: </p>
+
+      <select id="param_busqueda" name="param_busqueda" class="form-select">
+          <option value="0" >Nombre</option>
+          <option value="1" >Apellido paterno</option>
+          <option value="2" >Apellido materno</option>
+          <option value="3" selected>Clave</option>
+          <option value="4" >Teléfono</option>
+          <option value="5" >Correo</option>
+          <option value="6" >Sexo</option>
+          <option value="7" >Fecha nacimiento</option>
+          <option value="8" >Facultad</option>
+          <option value="9" >Campus</option>
+      </select>
+
+      <input type="text" id="id_a_buscar" name="id_a_buscar" value = "" class="form-control">
+
+      <br>
+
+      <div id="banner_busq_fallo" class="alert alert-danger confirmaciones">
+        <b>No existe ningun alumno con el parametro </b> <b id="txt_parametro"></b>
+      </div>
+
+      <button class="btn btn-primary" type="submit" onclick="Buscar_alumno()">Buscar alumno</button>
+
+      <div id="resultado_busqueda" class="container mt-3">
+        <p class="confirmaciones">Resultados: </p>
+        <table id="tabla_busqueda" class="table confirmaciones"></table>
+      </div>
+
     </div>
   <!--</form>-->
 <!--</div>-->
