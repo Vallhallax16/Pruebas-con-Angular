@@ -1,3 +1,4 @@
+//Se trabaja únicamente con XML
 function Mostrar_tabla()
 {
     let tabla = document.getElementById("tabla_de_alumnos");
