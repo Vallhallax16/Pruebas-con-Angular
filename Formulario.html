@@ -17,23 +17,47 @@
   <script src="Scripts/Crear_objeto_dinamico.js"></script>
   <script src="Scripts/Script_revisar_tabla.js"></script>
   <script src="Scripts/Script_obtener_XML.js"></script>
-  <script src="Scripts/Script_crear_XML_con_datos.js"></script>
+  <script src="Scripts/Script_variables_globales.js"></script>
   <script src="Scripts/Script_borrar_alumno.js"></script>
   <script src="Scripts/Script_ocultar_secciones.js"></script>
   <script src="Scripts/Script_buscar.js"></script>
+  <script src="Scripts/Script_limpiador.js"></script>
+  <script src="Scripts/Script_editar_alumno.js"></script>
+  <script src="Scripts/Script_preparar_edicion.js"></script>
+  <script src="Scripts/Script_campus_fieldset.js"></script>
+  <script src="Scripts/Script_actualizar_alumno.js"></script>
+  <script src="Scripts/Script_confirmar_ocultar.js"></script>
+
+  <!--SCRIPTs para XML-->
+  <script src="Scripts/Script_boton_XML.js"></script>
+  <script src="Scripts/Script_crear_XML_con_datos.js"></script>
+  <script src="Scripts/Script_operaciones_volver.js"></script>
+
+  <!--SCRIPTs para JSON-->
+  <script src="Scripts/Script_obtener_JSON.js"></script>
+  <script src="Scripts/Script_crear_JSON_con_datos.js"></script>
 
 </head>
 
 <body id="cuerpo_angular" ng-app="Inicial" ng-controller="controlador">
 
 
-    <nav class="navbar navbar-expand-sm navbar-dark navbar-royal-blue">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="Imagenes/logo.png" alt="Logo" style="width:40px;">
-        </a>
+    <div id="cenefa_superior">
+      <img id="logo_lasalle" src="Imagenes/logo.png" alt="Logo">
+
+      <div id="div_boton_JSON_XML" class="d-flex">
+        <p id="Txt_usar_XML" class="me-2">Usar XML: </p>
+
+        <div id="contenedor_boton_selector" class="me-2">
+          <div id="elementos_boton" class="me-2" onclick="Des_activar_XML()">
+
+            <div id="boton_movible">
+              <p id="Txt_on_off">ON</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </nav>
+    </div>
 
     <div class="container">
       <div class="container mt-3">
@@ -84,8 +108,9 @@
             <li onclick="Ocultar_excepto(1)">Revisar alumnos</li>
             <li onclick="Ocultar_excepto(2)">Borrar alumno</li>
             <li onclick="Ocultar_excepto(3)">Buscar alumno</li>
+            <li onclick="Ocultar_excepto(4)">Editar alumno</li>
           </ul>
-
+          </ul>
         </div>
 
       <div id="forma_registro">
@@ -178,14 +203,14 @@
         <p>Sexo:</p>
         <button id="pp">Prefiero no contestar</button><br><br>
         <fieldset id="sexo">
-          <input type="radio" id="masculino" name="sexo" value="masculino" ng-model="sexo">
-          <label for="masculino">Masculino</label>
+          <input type="radio" id="masculino" name="sexo" value="Masculino" ng-model="sexo">
+          <label for="Masculino">Masculino</label>
           <br>
-          <input type="radio" id="femenino" name="sexo" value="femenino" ng-model="sexo">
-          <label for="femenino">Femenino</label>
+          <input type="radio" id="femenino" name="sexo" value="Femenino" ng-model="sexo">
+          <label for="Femenino">Femenino</label>
           <br>
-          <input type="radio" id="otro" name="sexo" value="otro" ng-model="sexo">
-          <label for="otro">Otro</label>
+          <input type="radio" id="otro" name="sexo" value="Otro" ng-model="sexo">
+          <label for="Otro">Otro</label>
           <br>
         </fieldset>
         <br>
@@ -198,12 +223,12 @@
 
         Selecciona tu facultad:
         <select id="facultad" name="facultad" ng-model="facultad">
-          <option value="Facultad de ingeniería">Facultad de ingeniería</option>
-          <option value="Facultad de negocios">Facultad de negocios</option>
-          <option value="Facultad de derecho">Facultad de derecho</option>
-          <option value="Facultad de humanidades">Facultad de humanidades</option>
-          <option value="Facultad de medicina">Facultad de medicina</option>
-          <option value="Facultad de química">Facultad de química</option>
+          <option value="Ingeniería">Facultad de ingeniería</option>
+          <option value="Negocios">Facultad de negocios</option>
+          <option value="Derecho">Facultad de derecho</option>
+          <option value="Humanidades">Facultad de humanidades</option>
+          <option value="Medicina">Facultad de medicina</option>
+          <option value="Química">Facultad de química</option>
         </select>
         <br>
         <br>
@@ -237,18 +262,18 @@
         <br>
 
         Introduce tu dirección: <button id="nocasa">No tengo casa</button></button>
-        <textarea name="Direccion" rows="10" cols="90" id="direccion" ng-model="direccion">Pon tu direccion acá</textarea>
-
+        <input class="form-control" name="Direccion" id="direccion" ng-model="direccion">
 
         <p>¿Cuáles son tus expectativas de la carrera?</p><button id="noexpectativas">No tengo expectativas</button>
-        <textarea name="expectativas" id="expectativas" rows="10" cols="90" ng-model="expectativas"></textarea><br><br>
+        <input class="form-control" name="expectativas" id="expectativas" ng-model="expectativas">
+
+        <br>
+        <br>
 
         <div id="flip">Da clic para datos de contacto</div>
         <div id="panel" class="mb-2 p-5 bg-primary text-white rounded">Telefono: 55 5278 9500<br>Benjamín Franklin No 45,
           Col. Condesa, Alc Cuauhtémoc, CDMX. CP 06140
         </div>
-
-        <!--<p>Hasta ahora llevas {{name}} {{ap_pat}} {{ap_mat}} {{telefono}} {{email}} {{clave}} {{sexo}} {{fecha_nacimiento}} {{facultad}} {{campus}} {{semestre}} {{direccion}} {{expectativas}} {{campus1}} {{campus2}} {{campus3}}</p>-->
 
         <div id="flip1">Mas informacion</div>
         <div id="panel1"> <img src="Imagenes/LaSal.png"></div>
@@ -259,10 +284,12 @@
         </div><br>
         <div id="div3" style="width:100px;height:40px;display:none;background-color:blue; color:white;">Servicio</div>
 
-        <p>Objeto dinámico: </p>
-        <p id="Objeto_dinamico"></p>
+        <div id="objetos_dinamicos" class="container mt-3">
+          <p>Objeto dinámico: </p>
+          <p id="Objeto_dinamico" class="me-3"></p>
 
-        <p id="json"></p>
+          <p id="json"></p>
+        </div>
 
         <br>
 
@@ -276,7 +303,7 @@
         </table>
     </div>
 
-    <div id="borrar_alumno" class="container mt-3">
+    <div id="borrar_alumno" class="container mt-3 inicialmente_ocultos">
         <p>Introduce la <em>clave</em> del alumno a borrar</p>
         <small id="envio_ayuda" class="form-text text-muted">No es sensible a mayúsculas y minúsculas</small>
         <input type="text" id="id_a_borrar" name="id_a_borrar" value="" class="form-control">
@@ -298,20 +325,20 @@
         <br>
     </div>
 
-    <div id="buscar_alumno" class="container mt-3">
+    <div id="buscar_alumno" class="container mt-3 inicialmente_ocultos">
       <p id="p_buscar_al">Buscar a un alumno por: </p>
 
       <select id="param_busqueda" name="param_busqueda" class="form-select">
-          <option value="0" >Nombre</option>
-          <option value="1" >Apellido paterno</option>
-          <option value="2" >Apellido materno</option>
-          <option value="3" selected>Clave</option>
-          <option value="4" >Teléfono</option>
-          <option value="5" >Correo</option>
-          <option value="6" >Sexo</option>
-          <option value="7" >Fecha nacimiento</option>
-          <option value="8" >Facultad</option>
-          <option value="9" >Campus</option>
+          <option value="Nombre" >Nombre</option>
+          <option value="Ap_pat" >Apellido paterno</option>
+          <option value="Ap_mat" >Apellido materno</option>
+          <option value="Clave" selected>Clave</option>
+          <option value="Telefono" >Teléfono</option>
+          <option value="Correo" >Correo</option>
+          <option value="Sexo" >Sexo</option>
+          <option value="Fecha" >Fecha nacimiento</option>
+          <option value="Facultad" >Facultad</option>
+          <option value="Campus" >Campus</option>
       </select>
 
       <input type="text" id="id_a_buscar" name="id_a_buscar" value = "" class="form-control">
@@ -322,16 +349,124 @@
         <b>No existe ningun alumno con el parametro </b> <b id="txt_parametro"></b>
       </div>
 
-      <button class="btn btn-primary" type="submit" onclick="Buscar_alumno()">Buscar alumno</button>
+      <button class="btn btn-primary" type="submit" onclick="Buscar_alumno(0)">Buscar alumno</button>
 
       <div id="resultado_busqueda" class="container mt-3">
         <p class="confirmaciones">Resultados: </p>
         <table id="tabla_busqueda" class="table confirmaciones"></table>
       </div>
-
     </div>
-  <!--</form>-->
-<!--</div>-->
+
+    <div id="editar_alumno" class="inicialmente_ocultos container mt-3">
+      <p>Introduce la <em>clave</em> del alumno a editar</p>
+      <small id="edicion_ayuda" class="form-text text-muted">No es sensible a mayúsculas y minúsculas</small>
+      <input type="text" id="id_a_editar" class="form-control" name="id_a_editar">
+
+      <br>
+
+      <button class="btn btn-primary" type="submit" onclick="Editar_info_alumno()">Buscar ID</button>
+
+      <div>
+        <br>
+        <div id="Alerta_alumno_encontrado_edit" class="alert alert-info inicialmente_ocultos">
+          Se encontró el alumno, mostrando la información editable
+        </div>
+
+        <div id="Alerta_alumno_editado_edit" class="alert alert-info inicialmente_ocultos">
+          Se ha editado la información exitosamente
+        </div>
+
+        <div id="Alerta_alumno_no_encontrado_edit" class="alert alert-danger inicialmente_ocultos">
+          NO se encontró un alumno con la clave <b id="Clave_erronea_edit">0000</b>
+        </div>
+        <br>
+      </div>
+
+      <div id="div_campos_editables" class="container mt-3 inicialmente_ocultos">
+        <div id="nombre_ed" class="div_con_input">
+          <p class="etiquetas_edit">Nombre: </p>
+          <input type="text" id="Nombre_editable" name="Nombre_editable" class="form-control w-50 h-50 EDIT">
+        </div>
+
+        <div id="ap_pat_ed" class="div_con_input">
+          <p class="etiquetas_edit">Apellido paterno: </p>
+          <input type="text" id="Ap_pat_editable" name="Ap_pat_editable" class="form-control w-50 h-50 EDIT">
+        </div>
+
+        <div id="ap_mat_ed" class="div_con_input">
+          <p class="etiquetas_edit">Apellido materno: </p>
+          <input type="text" id="Ap_mat_editable" name="Ap_mat_editable" class="form-control w-50 h-50 EDIT">
+        </div>
+
+        <div id="telefono_ed" class="div_con_input">
+          <p class="etiquetas_edit">Teléfono: </p>
+          <input type="text" id="Telefono_editable" name="Telefono_editable" class="form-control w-50 h-50 EDIT" pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}">
+        </div>
+
+        <div id="correo_ed" class="div_con_input">
+          <p class="etiquetas_edit">Correo: </p>
+          <input type="text" id="Correo_editable" name="Correo_editable" class="form-control w-50 h-50 EDIT">
+        </div>
+
+        <div class="div_con_elementos d-flex align-items-center">
+          <p class="etiquetas_edit">Sexo: </p>
+          <fieldset id="sexo_ed" class="EDIT">
+            <input type="radio" id="masculino_ed" name="sexo" value="Masculino">
+            <label for="masculino">Masculino</label>
+            <br>
+            <input type="radio" id="femenino_ed" name="sexo" value="Femenino">
+            <label for="femenino">Femenino</label>
+            <br>
+            <input type="radio" id="otro_ed" name="sexo" value="Otro">
+            <label for="otro">Otro</label>
+            <br>
+          </fieldset>
+        </div>
+
+        <div class="div_con_elementos">
+          <p class="etiquetas_edit">Fecha nacimiento:</p>
+          <input type="date"  id="fecha_ed" name="fecha_ed" class="EDIT">
+        </div>
+
+        <div class="div_con_elementos">
+          <p class="etiquetas_edit">Facultad: </p>
+          <select id="Facultad_editable" name="facultad_ed" class="EDIT">
+            <option value="Ingeniería">Facultad de ingeniería</option>
+            <option value="Negocios">Facultad de negocios</option>
+            <option value="Derecho">Facultad de derecho</option>
+            <option value="Humanidades">Facultad de humanidades</option>
+            <option value="Medicina">Facultad de medicina</option>
+            <option value="Química">Facultad de química</option>
+          </select>
+        </div>
+
+        <div class="div_con_elementos">
+          <p class="etiquetas_edit">Campus: </p>
+          <fieldset id="Campus_editable" class="EDIT">
+            <div id="div_campus_editable" class="form-check form-check-inline">
+              <div class="form-check form-check-inline">
+                <input type="checkbox" id="campus1_ed" name="campus1_ed" value="1" class="form-check-input" onclick="Seleccionar_solo_este(0)">
+                <label for="campus1_ed" class="form-check-label">Campus 1</label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input type="checkbox" id="campus2_ed" name="campus1_ed" value="2" class="form-check-input" onclick="Seleccionar_solo_este(1)">
+                <label for="campus2_ed" class="form-check-label">Campus 2</label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input type="checkbox" id="campus3_ed" name="campus1_ed" value="3" class="form-check-input" onclick="Seleccionar_solo_este(2)">
+                <label for="campus3_ed" class="form-check-label">Campus 3</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="submit" onclick="Actualizar_alumno()">Actualizar datos</button>
+        </div>
+      </div>
+    </div>
 
 </body>
 </html>

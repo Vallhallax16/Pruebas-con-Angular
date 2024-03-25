@@ -1,3 +1,7 @@
+@media (min-width: 1300px) {
+    
+}
+
 .required {
     border: 2px solid red;
 }
@@ -97,4 +101,178 @@ ul#pestanas li:hover
     display: inline;
 
     margin-bottom: 1%;
+}
+
+.inicialmente_ocultos
+{
+    display: none;
+}
+
+#cenefa_superior
+{
+    display: inline-flex;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+
+    background-color: rgb(65,105,225);
+}
+
+#logo_lasalle
+{
+    height: 4%;
+    width: 4%;
+
+    margin-left: 1%;
+}
+
+/*INICIO DE ESTILOS PARA EL BOTÓN CAMBIADOR*/
+#div_boton_JSON_XML
+{
+    display: inline-flex;
+    justify-content: flex-end;
+
+    min-width: 25%;
+
+    align-items: center;
+}
+
+#Txt_usar_XML
+{
+    padding-top: 5%;
+
+    color: white;
+}
+
+#contenedor_boton_selector
+{
+    border-color: white;
+    border: solid white;
+    border-radius: 15px;
+
+    background-color: white;
+
+    min-width: 15%;
+    min-height: 48%;
+}
+
+#elementos_boton
+{
+    display: flex;
+}
+
+#Txt_on_off
+{
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    color: white;
+    font-size: 80%;
+}
+
+#boton_movible
+{
+    border-radius: 50%;
+    background-color: #777777;
+    border: solid #777777;
+
+    height: 100%;
+    width: 65%;
+
+    /*transform: translateX(90%);*/
+
+    top: 0;
+}
+
+#boton_movible:hover
+{
+    cursor: pointer;
+}
+/*FIN DEL ESTILO PARA EL BOTÓN CAMBIADOR*/
+
+#div_campos_editables
+{
+    display: none;
+}
+
+.div_con_input
+{
+    display: flex;
+}
+
+#nombre_ed
+{
+    gap: 6%;
+}
+
+#ap_pat_ed
+{
+    gap: 1.2%;
+}
+
+#ap_mat_ed
+{
+    gap: 0.95%;
+}
+
+#telefono_ed
+{
+    gap: 5.9%;
+}
+
+#correo_ed
+{
+    gap: 6.90%;
+}
+
+.etiquetas_edit
+{
+    padding-top: 0.5%;
+}
+
+.div_con_elementos
+{
+    display: flex;
+}
+
+#sexo_ed
+{
+    display: flex;
+
+    gap: 5%;
+
+    padding-left: 8%;
+
+    top: 0;
+}
+
+#Facultad_editable
+{
+    border: none;
+
+    margin-left: 6%;
+    margin-bottom: 1%;
+}
+
+#Campus_editable
+{
+    display: flex;
+    flex-wrap: nowrap;
+
+    gap: 1%;
+
+    padding-left: 4.5%;
+    padding-top: 0.5%;
+
+    width: 100%;
+}
+
+#fecha_ed
+{
+    margin-left: 1%;
 }

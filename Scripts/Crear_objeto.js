@@ -9,22 +9,22 @@ function Armar_objeto()
 
     if(Boolean(scope_inicial.campus1))
     {
-        campus_codigo.push("Campus 1");
+        campus_codigo.push("1");
     }
     else if(Boolean(scope_inicial.campus2))
     {
-        campus_codigo.push("Campus 2");
+        campus_codigo.push("2");
     }
     else if(Boolean(scope_inicial.campus3))
     {
-        campus_codigo.push("Campus 3");
+        campus_codigo.push("3");
     }
     else
     {
         campus_codigo.push("No se seleccionó un campus");
     }
 
-    //console.log("Arreglo campus: " + campus_codigo);
+    //let exp_reg = /^T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
 
     let objeto_json = {nombre: scope_inicial.name,
                             apellido_paterno: scope_inicial.ap_pat,
@@ -33,7 +33,7 @@ function Armar_objeto()
                             email: scope_inicial.email,
                             clave_ulsa: scope_inicial.clave,
                             sexo: scope_inicial.sexo,
-                            fecha_nacimiento: scope_inicial.fecha_nacimiento,
+                            fecha_nacimiento: document.getElementById("fecha").value,
                             facultad: scope_inicial.facultad,
                             campus: campus_codigo,
                             semestre: scope_inicial.semestre,

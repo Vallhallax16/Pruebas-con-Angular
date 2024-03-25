@@ -1,7 +1,4 @@
-var XML_lleno = false;
-var nuevo_XML = "";
-
-function Anexar_nuevo_registro(json)
+function Anexar_nuevo_registro_XML(json)
 {
     if(json != undefined)
     {
@@ -53,19 +50,6 @@ function Anexar_nuevo_registro(json)
         elemento_nuevo.appendChild(tag_Campus);
 
         XML_existente.getElementsByTagName("Alumnos")[0].appendChild(elemento_nuevo);
-
-        /*nuevo_XML = "<alumno>" +
-            "<Nombre>" + json.nombre + "</Nombre>" +
-            "<Ap_pat>" + json.apellido_paterno + "</Ap_pat>" +
-            "<Ap_mat>" + json.apellido_materno + "</Ap_mat>" +
-            "<Clave>" + json.clave_ulsa + "</Clave>" +
-            "<Telefono>" + json.telefono + "</Telefono>" +
-            "<Correo>" + json.email + "</Correo>" +
-            "<Sexo>" + json.sexo + "</Sexo>" +
-            "<Fecha>" + json.fecha_nacimiento + "</Fecha>" +
-            "<Facultad>" + json.facultad + "</Facultad>" +
-            "<Campus>" + json.campus + "</Campus>" +
-            "</alumno>";*/
 
         XML_lleno = true;
         nuevo_XML = XML_existente;

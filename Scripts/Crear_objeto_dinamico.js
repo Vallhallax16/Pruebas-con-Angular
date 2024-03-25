@@ -1,5 +1,5 @@
 function Objeto_dinamico()
 {
     let json_dinamico = Armar_objeto()
-    $("#Objeto_dinamico").html(json_dinamico);
+    document.getElementById("Objeto_dinamico").innerText = json_dinamico;
 }

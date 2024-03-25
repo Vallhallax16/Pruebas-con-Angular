@@ -2,16 +2,26 @@
 function Mostrar_tabla()
 {
     let tabla = document.getElementById("tabla_de_alumnos");
+    let objeto_parseado;
 
     Borrar_renglones(tabla);
 
     Llenar_encabezados(tabla);
 
-    let xmlDoc = Regresar_XML()
+    if(XML_en_uso)
+    {
+        let xmlDoc = Regresar_XML()
 
-    let xml_parseado = xmlDoc.getElementsByTagName("alumno");
+        let xml_parseado = xmlDoc.getElementsByTagName("alumno");
 
-    Llenar_tabla(tabla,xml_parseado,0, xml_parseado.length);
+        objeto_parseado = Volver_JSON(xml_parseado);
+    }
+    else
+    {
+        objeto_parseado = Regresar_JSON();
+    }
+
+    Llenar_tabla(tabla, objeto_parseado, 0, objeto_parseado.alumno.length);
 
     Cerrar_tabla(tabla);
 }
@@ -54,41 +64,21 @@ function Cerrar_tabla(tabla)
     tabla.style.textAlign = "center";
 }
 
-function Llenar_tabla(tabla,alumno_XML, inicio, fin)
+function Llenar_tabla(tabla,alumno, inicio, fin)
 {
     for(let i = inicio; i < fin; i++)
     {
         tabla.innerHTML += "<tr>"
-            +	"<td>"
-            +		alumno_XML[i].childNodes[0].childNodes[0].nodeValue
-            +	"</td>"
-            +	"<td>"
-            +		alumno_XML[i].childNodes[1].childNodes[0].nodeValue
-            +	"</td>"
-            +	"<td>"
-            +		alumno_XML[i].childNodes[2].childNodes[0].nodeValue
-            +	"</td>"
-            +	"<td>"
-            +		alumno_XML[i].childNodes[3].childNodes[0].nodeValue
-            +	"</td>"
-            +	"<td>"
-            +		alumno_XML[i].childNodes[4].childNodes[0].nodeValue
-            +	"</td>"
-            +	"<td>"
-            +		alumno_XML[i].childNodes[5].childNodes[0].nodeValue
-            +	"</td>"
-            +	"<td>"
-            +		alumno_XML[i].childNodes[6].childNodes[0].nodeValue
-            +	"</td>"
-            +	"<td>"
-            +		alumno_XML[i].childNodes[7].childNodes[0].nodeValue
-            +	"</td>"
-            +	"<td>"
-            +		alumno_XML[i].childNodes[8].childNodes[0].nodeValue
-            +	"</td>"
-            +	"<td>"
-            +		alumno_XML[i].childNodes[9].childNodes[0].nodeValue
-            +	"</td>"
+            +	"<td>" + alumno.alumno[i].Nombre + "</td>"
+            +	"<td>" + alumno.alumno[i].Ap_pat + "</td>"
+            +	"<td>" + alumno.alumno[i].Ap_mat + "</td>"
+            +	"<td>" + alumno.alumno[i].Clave + "</td>"
+            +	"<td>" + alumno.alumno[i].Telefono + "</td>"
+            +	"<td>" + alumno.alumno[i].Correo + "</td>"
+            +	"<td>" + alumno.alumno[i].Sexo + "</td>"
+            +	"<td>" + alumno.alumno[i].Fecha + "</td>"
+            +	"<td>" + alumno.alumno[i].Facultad + "</td>"
+            +	"<td>" + alumno.alumno[i].Campus + "</td>"
             +	"</tr>"
     }
 }

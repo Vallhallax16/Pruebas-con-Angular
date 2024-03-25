@@ -127,7 +127,6 @@ let txt_xml = "<Alumnos>" +
 
     if(XML_lleno == true)
     {
-        console.log("Retornando un XML ya modificado")
         xml = nuevo_XML;
     }
     else
@@ -135,6 +134,5 @@ let txt_xml = "<Alumnos>" +
         let parser = new DOMParser()
         xml = parser.parseFromString(txt_xml,"text/xml");
     }
-
     return xml;
 }
